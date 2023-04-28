@@ -1,7 +1,14 @@
 const PORT = process.env.PORT || 3700;
-const io = require( 'socket.io' )( 3700, {
+const allowedOrigins = [
+      'http://localhost:3000',
+      'http://localhost:3500',
+      'http://127.0.0.1:5500',
+      'https://witwater.vercel.app'
+];
+
+const io = require( 'socket.io' )( PORT, {
       cors: {
-            origin: "http://localhost:3000"
+            origin: allowedOrigins
       }
 })
 
